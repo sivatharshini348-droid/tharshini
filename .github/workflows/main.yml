@@ -1,1 +1,14 @@
-
+#when the workflow should run
+on:
+push:
+branches:["main"]
+pull_request:
+branches:["main"]
+#what jobs to run
+jobs:
+build:
+#step1:checkout the code
+_name:checkout repository
+user:actions/checkout@v4
+#step2:run a simple command
+run:echo "github actions workflow is running successfully.
