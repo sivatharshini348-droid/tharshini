@@ -1,14 +1,22 @@
-#when the workflow should run
+name: Simple Workflow
+
+# when the workflow should run
 on:
-push:
-branches:["main"]
-pull_request:
-branches:["main"]
-#what jobs to run
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+# what jobs to run
 jobs:
-build:
-#step1:checkout the code
-_name:checkout repository
-user:actions/checkout@v4
-#step2:run a simple command
-run:echo "github actions workflow is running successfully.
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # step1: checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # step2: run a simple command
+      - name: Run a command
+        run: echo "GitHub Actions workflow is running successfully."
