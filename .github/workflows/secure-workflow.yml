@@ -17,7 +17,7 @@ jobs:
           echo "Using secret securely"
 
           if [ -n "$PROJECT_FLOW" ]; then
-            echo "Secret is available ✅"
+            echo "Secret is available "
           else
-            echo "Secret missing ❌"
+            echo "Secret missing "
           fi
