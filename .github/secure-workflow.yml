@@ -1,0 +1,23 @@
+name: Secure Workflow Example
+
+on: [push]
+
+jobs:
+  secure-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use secret safely
+        env:
+          PROJECT_FLOW: ${{ secrets.PROJECT_FLOW }}
+        run: |
+          echo "Using secret securely"
+
+          if [ -n "$PROJECT_FLOW" ]; then
+            echo "Secret is available ✅"
+          else
+            echo "Secret missing ❌"
+          fi
